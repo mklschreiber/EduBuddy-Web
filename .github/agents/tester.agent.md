@@ -1,0 +1,1 @@
+../../.ai-base/agents/tester.md

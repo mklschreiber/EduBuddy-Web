@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="18 18 72 72" width="512" height="512">
+<defs><radialGradient id="bg" cx="50%" cy="42%" r="75%"><stop offset="0" stop-color="#1c8f90"/><stop offset="1" stop-color="#00575a"/></radialGradient></defs>
+<rect x="18" y="18" width="72" height="72" fill="url(#bg)"/>
+<g transform="translate(-30.48 21.66) scale(0.165)" stroke-linejoin="round" stroke-linecap="round">
+            <g fill="#8f6240" stroke="#4a2c20" stroke-width="7">
+              <path d="M414 104 C398 74 366 52 338 30 C336 52 346 70 362 84 C346 78 330 72 314 64 C316 84 332 96 352 104 C336 104 322 102 308 98 C322 120 362 126 404 118 Z"/><path d="M 610 104 C 626 74 658 52 686 30 C 688 52 678 70 662 84 C 678 78 694 72 710 64 C 708 84 692 96 672 104 C 688 104 702 102 716 98 C 702 120 662 126 620 118 Z"/>
+            </g>
+            <g fill="none" stroke="#4a2c20" stroke-width="5" opacity=".6"><path d="M392 92 C372 76 354 58 342 42 M374 100 C352 90 334 80 322 70 M372 110 C350 108 330 104 316 100"/><path d="M 632 92 C 652 76 670 58 682 42 M 650 100 C 672 90 690 80 702 70 M 652 110 C 674 108 694 104 708 100"/></g>
+            <ellipse cx="512" cy="194" rx="188" ry="148" fill="#9a6b45" stroke="#4a2c20" stroke-width="8"/>
+            <ellipse cx="512" cy="220" rx="176" ry="114" fill="#f1d7ab"/>
+            <path d="M380 312 C420 334 460 338 512 338 C564 338 604 334 644 312" fill="none" stroke="#a07448" stroke-width="6" opacity=".85"/>
+            <ellipse cx="372" cy="268" rx="28" ry="16" fill="#f4a0a8" opacity=".9"/>
+            <ellipse cx="652" cy="268" rx="28" ry="16" fill="#f4a0a8" opacity=".9"/>
+            <g>
+              <g>
+                <circle cx="416" cy="210" r="50" fill="#3a2428" stroke="#251417" stroke-width="5"/>
+                <path d="M452 216 A37 37 0 0 1 403 245 A29 29 0 0 0 452 216 Z" fill="#fff" opacity=".92"/>
+                <circle cx="400" cy="190" r="16" fill="#fff"/>
+                <path d="M372 202 L356 196 M376 186 L364 174 M390 172 L382 158" fill="none" stroke="#251417" stroke-width="5"/>
+              </g>
+              <g>
+                <circle cx="608" cy="210" r="50" fill="#3a2428" stroke="#251417" stroke-width="5"/>
+                <path d="M644 216 A37 37 0 0 1 595 245 A29 29 0 0 0 644 216 Z" fill="#fff" opacity=".92"/>
+                <circle cx="590" cy="190" r="16" fill="#fff"/>
+                <path d="M652 202 L668 196 M648 186 L660 174 M634 172 L642 158" fill="none" stroke="#251417" stroke-width="5"/>
+              </g>
+            </g>
+            <g>
+              <clipPath id="ow-ll"><rect x="326" y="136" width="150" height="148" rx="24"/></clipPath>
+              <clipPath id="ow-lr"><rect x="548" y="136" width="150" height="148" rx="24"/></clipPath>
+              <g fill="#fff" fill-opacity=".14" stroke="#33201c" stroke-width="16">
+                <rect x="323" y="133" width="170" height="168" rx="32" transform="translate(-7 -7)"/>
+                <rect x="545" y="133" width="170" height="168" rx="32" transform="translate(-7 -7)"/>
+              </g>
+              <g clip-path="url(#ow-ll)" fill="#fff"><path d="M360 126 L398 126 L336 260 L298 260 Z" opacity=".2"/><path d="M412 126 L426 126 L364 260 L350 260 Z" opacity=".16"/></g>
+              <g clip-path="url(#ow-lr)" fill="#fff"><path d="M582 126 L620 126 L558 260 L520 260 Z" opacity=".2"/><path d="M634 126 L648 126 L586 260 L572 260 Z" opacity=".16"/></g>
+              <path d="M484 178 Q512 164 540 178 L540 186 Q512 172 484 186 Z" fill="#33201c" stroke="#33201c" stroke-width="4"/>
+            </g>
+            <defs><linearGradient id="ow-bk" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffb347"/><stop offset="1" stop-color="#f0780f"/></linearGradient></defs>
+            <path d="M495 230 Q512 222 529 230 Q527 250 512 278 Q497 250 495 230 Z" fill="url(#ow-bk)" stroke="#4a2c20" stroke-width="7"/>
+            <path d="M504 235 Q510 232 517 233" fill="none" stroke="#fff" stroke-width="5" opacity=".65"/>
+            <path d="M512 250 L512 264" fill="none" stroke="#b9560a" stroke-width="4" opacity=".5"/>
+</g>
+</svg>
