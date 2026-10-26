@@ -24,22 +24,20 @@ companion for children with the owl Elly). Vue 3, TypeScript, Vite website; appl
 
 ## Jira
 
-<!-- TODO: fill in once the Jira project for the landing page exists. -->
-
 | Setting | Value |
 |---|---|
 | Site | `https://mklschreiber.atlassian.net` |
 | Cloud ID | `8e9f1375-dd39-419a-b3cf-48a86adeb617` |
-| Project key | `<KEY>` |
-| Board ID | `<n>` |
-| Uses sprints | `<yes \| no>` |
+| Project key | `ELA` |
+| Board ID | `7` |
+| Uses sprints | `yes` |
 
 | Status | Transition ID |
 |---|---|
-| Open | `<id>` |
-| In Progress | `<id>` |
-| In Review | `<id>` |
-| Done | `<id>` |
+| Open | `11` |
+| In Progress | `21` |
+| In Review | `31` |
+| Done | `41` |
 
 ## Branches & Story IDs
 
