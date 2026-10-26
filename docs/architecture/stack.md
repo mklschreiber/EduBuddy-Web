@@ -67,7 +67,6 @@ independent jobs (`lint`, `test`, `build`) on Node 20, each installing with
 GitHub Pages deployment is defined in `.github/workflows/deploy.yml`. On pushes
 to `main` (and on manual dispatch), the workflow runs from `app/`, uses Node
 20, installs with `npm ci`, builds with `npm run build`, and deploys
-`app/dist`. The deployment workflow supplies
-`VITE_BASE_URL=/edubuddy-LandingPage/` (project page
-`https://mklschreiber.github.io/edubuddy-LandingPage/`); switch it to `/` when
-a custom domain is configured.
+`app/dist`. The page is served from the custom domain
+`https://www.eulino.app/` (configured in the repository Pages settings, DNS at
+Cloudflare), so the deployment workflow supplies `VITE_BASE_URL=/`.

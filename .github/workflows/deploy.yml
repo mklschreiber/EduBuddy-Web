@@ -44,9 +44,8 @@ jobs:
       - name: Build
         run: npm run build
         env:
-          # Project page https://mklschreiber.github.io/edubuddy-LandingPage/.
-          # Switch to '/' once a custom domain is configured in the repository Pages settings.
-          VITE_BASE_URL: '/edubuddy-LandingPage/'
+          # Served from the custom domain https://www.eulino.app/ (set in the repository Pages settings).
+          VITE_BASE_URL: '/'
 
       - name: Setup Pages
         uses: actions/configure-pages@v4

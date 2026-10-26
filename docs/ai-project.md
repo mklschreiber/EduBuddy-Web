@@ -8,8 +8,7 @@
 Eulino Landing Page — coming-soon page for the app Eulino (voice-based learning
 companion for children with the owl Elly). Vue 3, TypeScript, Vite website; application in
 `app/`; deployed to GitHub Pages from `app/dist` by `deploy.yml` on push to `main`
-(project page `https://mklschreiber.github.io/edubuddy-LandingPage/`, `VITE_BASE_URL` is
-`/edubuddy-LandingPage/` until a custom domain is set).
+(custom domain `https://www.eulino.app/`, DNS at Cloudflare, `VITE_BASE_URL` is `/`).
 
 - Keep changes compatible with that build path.
 - Work from `app/` for all `npm` commands. The dev server is `npm run dev`.
@@ -111,7 +110,7 @@ awk -F'"' '/^  "version":/{print $4; exit}'
 
 - **Vue:** Use Vue 3 Composition API with `<script setup lang="ts">`; keep presentation components focused and move reusable stateful behavior into composables where appropriate.
 - **TypeScript:** Use explicit types at public boundaries and reuse types from `app/src/types/`.
-- **Assets:** Build asset URLs from `import.meta.env.BASE_URL`, because the page is served below `/edubuddy-LandingPage/`.
+- **Assets:** Build asset URLs from `import.meta.env.BASE_URL`, so the page keeps working if it is served below a sub-path again.
 - **State and navigation:** Use Pinia and Vue Router only when an approved concept requires them.
 
 ## Agent: tester
