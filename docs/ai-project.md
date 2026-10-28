@@ -23,13 +23,17 @@ companion for children with the owl Elly). Vue 3, TypeScript, Vite website; appl
 
 ## Jira
 
+The landing page shares the Jira project `EDU` with the apps. The label tells the platforms
+apart: `Web` (this repository), `Apple` (`EduBuddy-Apple`) and `Android` (`edubuddy`).
+
 | Setting | Value |
 |---|---|
 | Site | `https://mklschreiber.atlassian.net` |
 | Cloud ID | `8e9f1375-dd39-419a-b3cf-48a86adeb617` |
-| Project key | `ELA` |
-| Board ID | `7` |
-| Uses sprints | `yes` |
+| Project key | `EDU` |
+| Board ID | `6` |
+| Uses sprints | `no` |
+| Platform label | `Web` |
 
 | Status | Transition ID |
 |---|---|
