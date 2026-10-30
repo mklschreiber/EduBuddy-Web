@@ -32,7 +32,7 @@ apart: `Web` (this repository), `Apple` (`EduBuddy-Apple`) and `Android` (`edubu
 | Cloud ID | `8e9f1375-dd39-419a-b3cf-48a86adeb617` |
 | Project key | `EDU` |
 | Board ID | `6` |
-| Uses sprints | `no` |
+| Uses sprints | `yes` |
 | Platform label | `Web` |
 
 | Status | Transition ID |
