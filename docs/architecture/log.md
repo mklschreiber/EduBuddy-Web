@@ -5,6 +5,7 @@ documentation.
 
 | Date | Decision |
 |---|---|
+| 2026-11-05 | The cross-platform data inventory, app links and texts, wording principles and the "keep the notice true" rule of the privacy notice moved to the shared architecture (`docs/shared/privacy-notice.md`); EDU-45 D5 keeps only the mapping to copy sections, D8 links the shared rule; the index links `docs/shared/`. |
 | 2026-11-04 | EDU-45 user review round 1: Firebase Crashlytics will also be added to the Apple app (iPhone, iPad, Mac; Apple story EDU-46), so the notice describes crash reports for all platforms (release versions only, error and device data, random installation ID, app start times, no session content, 90 days, Art. 6(1)(f)); the Apple "no crash reporting" / "Share with App Developers" / TestFlight texts are replaced by one generic store-diagnostics sentence. The Apple Crashlytics story EDU-46 must verify these texts when it ships (D8, D11). |
 | 2026-11-04 | EDU-45: the privacy notice is a second Vite entry `app/privacy/index.html` (`build.rollupOptions.input`), served by GitHub Pages as `/privacy` → 301 `/privacy/` with HTTP 200; no Vue Router, no 404 fallback, no new dependency. |
 | 2026-11-04 | EDU-45: one page with both languages (English article `#en`, then German `#de`, anchor links, `lang` per article); copy in the typed module `src/data/privacy.ts` (section blocks `paragraph`/`list`/`address`/`link`), German in the "du" form; `PRIVACY_LAST_UPDATED` 2026-11-04. |
