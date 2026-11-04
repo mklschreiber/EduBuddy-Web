@@ -13,6 +13,15 @@ Read before working on this project:
 
 The Vue 3 + TypeScript + Vite application is located in `app/`.
 
+## Shared Architecture Docs
+
+[docs/shared/](docs/shared/index.md) is the submodule `EduBuddy-Architecture`: the
+platform-independent architecture shared by EduBuddy-Android, EduBuddy-Apple and
+EduBuddy-Web (domain model, file formats, protocols, AI behaviour, shared texts). It is
+binding for this project. Rules: section "Shared Architecture Docs" in
+[.ai-base/handbook.md](.ai-base/handbook.md). If `docs/shared/` is empty, run
+`git submodule update --init docs/shared`.
+
 ## Agent Definitions (Claude)
 
 `.claude/agents/*.md` are symlinks into [.ai-base/agents/](.ai-base/agents/) (shared with

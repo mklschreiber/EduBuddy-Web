@@ -94,6 +94,8 @@ awk -F'"' '/^  "version":/{print $4; exit}'
   `## Current Concepts`, AI reviews under `## Reviews`.
 - Log `docs/architecture/log.md`: newest first, one row `| <YYYY-MM-DD> | <decision> |` at the
   top of the table.
+- Shared docs: `docs/shared` — the shared architecture of all EduBuddy platforms
+  (submodule of `EduBuddy-Architecture`, tracks `main`).
 
 ## Important Files
 
