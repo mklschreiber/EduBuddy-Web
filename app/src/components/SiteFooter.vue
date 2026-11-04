@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { DEVELOPER_NAME, DEVELOPER_URL, IMPRINT_URL } from '@/data/content'
+import { DEVELOPER_NAME, DEVELOPER_URL, IMPRINT_URL, PRIVACY_URL } from '@/data/content'
 import AppLogo from './AppLogo.vue'
 
 const year = new Date().getFullYear()
@@ -13,6 +13,7 @@ const year = new Date().getFullYear()
         <p>© {{ year }} {{ DEVELOPER_NAME }}</p>
       </div>
       <nav class="site-footer__links" aria-label="Footer">
+        <a :href="PRIVACY_URL">Privacy</a>
         <a :href="IMPRINT_URL" target="_blank" rel="noopener noreferrer">Imprint</a>
         <a :href="DEVELOPER_URL" target="_blank" rel="noopener noreferrer">Developer</a>
       </nav>

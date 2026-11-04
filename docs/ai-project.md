@@ -17,7 +17,8 @@ companion for children with the owl Elly). Vue 3, TypeScript, Vite website; appl
   "EduBuddy" is the internal codename (app repository, package, Jira project `EDU`, this
   repository's name) and must not appear in page copy. The owl is still called Elly.
 - **Platforms:** the app is planned for Android and iOS; page copy says "app" and names no
-  single platform or store.
+  single platform or store. Exception: the privacy notice (`/privacy`, EDU-45) names platforms
+  and stores where data flows differ.
 - Brand assets come from the app repository (`EduBuddy`, `docs/design/EDU-24-1/`): the app
   icon layers are the source of `app/public/favicon.svg` and `app/public/elly.svg`.
 
@@ -98,8 +99,10 @@ awk -F'"' '/^  "version":/{print $4; exit}'
 ## Important Files
 
 - `app/package.json` — scripts, dependencies and the version
-- `app/src/data/content.ts` — all copy of the page
-- `app/index.html` — title, description and Open Graph tags
+- `app/src/data/content.ts` — copy of the home page and the shared header/footer
+- `app/src/data/privacy.ts` — privacy notice copy (English and German)
+- `app/index.html` — title, description and Open Graph tags of the home page
+- `app/privacy/index.html` — title, description and Open Graph tags of the privacy page
 - `.github/workflows/deploy.yml` — GitHub Pages deployment and `VITE_BASE_URL`
 
 ## Agent: architect

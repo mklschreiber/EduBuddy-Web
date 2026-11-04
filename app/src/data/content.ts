@@ -6,6 +6,9 @@ export const DEVELOPER_NAME = 'Michael Schreiber'
 export const DEVELOPER_URL = 'https://www.michaelschreiber.net'
 export const IMPRINT_URL = 'https://www.michaelschreiber.net/#/imprint'
 
+/** The privacy notice page (EDU-45); `/privacy` redirects here on GitHub Pages. */
+export const PRIVACY_URL = `${import.meta.env.BASE_URL}privacy/`
+
 export const hero = {
   eyebrow: 'Coming soon',
   title: 'Learning is more fun',

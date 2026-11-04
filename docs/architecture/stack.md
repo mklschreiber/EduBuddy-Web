@@ -3,7 +3,7 @@ type: Architecture Reference
 title: Technology Stack and Tooling
 description: Verified baseline for the Vue 3, TypeScript, and Vite coming-soon page in app/.
 tags: [stack, vue, typescript, vite, web]
-timestamp: 2026-10-26T21:45:00+01:00
+timestamp: 2026-11-04T12:00:00+01:00
 status: current
 ---
 
@@ -16,14 +16,41 @@ status: current
 - The Vite alias `@` resolves to `app/src`.
 - Vite's base URL is `VITE_BASE_URL` when set, otherwise `/`. Asset URLs in
   components are built from `import.meta.env.BASE_URL`.
-- Title, description and Open Graph tags are static in `app/index.html`.
+- Two HTML entries (Vite multi-page build, `build.rollupOptions.input` in
+  `vite.config.ts`): `index.html` (coming-soon page, `src/main.ts` → `App.vue`) and
+  `privacy/index.html` (privacy notice, `src/privacy-main.ts` → `PrivacyApp.vue`), built to
+  `dist/index.html` and `dist/privacy/index.html`. GitHub Pages serves `/privacy` as a 301 to
+  `/privacy/` ([EDU-45](EDU-45-privacy-notice-page.md)). New pages follow the same pattern; there
+  is no router.
+- Title, description and Open Graph tags are static in each entry HTML file.
 
 ## Client Libraries
 
 Vue is the only runtime dependency. There is no router, state library, i18n
-library, or UI component library; the page is English-only and its copy lives
-in `src/data/content.ts`. No web fonts, analytics or cookies. Add libraries
-only through an approved concept and record them here.
+library, or UI component library. The coming-soon page is English-only and its
+copy lives in `src/data/content.ts`; the privacy notice is bilingual (English and
+German on one page) and its copy lives in `src/data/privacy.ts`. No web fonts,
+analytics, cookies, forms or external resources. Add libraries only through an
+approved concept and record them here.
+
+## Privacy Notice
+
+- `https://www.eulino.app/privacy` is the privacy notice of the Eulino apps
+  (Android, iPhone/iPad/Mac) and of this website; the Android app links it
+  (EDU-28). Copy: `src/data/privacy.ts`, date `PRIVACY_LAST_UPDATED`.
+- The data inventory it was written from is
+  [EDU-45](EDU-45-privacy-notice-page.md) D5 (verified against both app
+  repositories).
+- Rule (Android EDU-28 D8): any app story that adds or changes a data flow (new
+  recipient, new stored data, new backup scope, new SDK) requires a follow-up
+  story here (label `Web`) that updates `src/data/privacy.ts`, the date and D5.
+  A website change that adds a cookie, form, analytics or external resource
+  updates the `website` section in the same story.
+- Crash reports are described for all platforms. Firebase Crashlytics in the
+  Apple app is planned (EDU-45 D11, Apple story EDU-46); EDU-46 must
+  verify the crash-report texts of the notice when it ships.
+- Exception to the platform-neutral copy: the privacy page names platforms and
+  stores where the data flows differ.
 
 ## Brand Assets
 
