@@ -7,6 +7,11 @@ timestamp: 2026-11-04T16:00:00+01:00
 status: draft
 ---
 
+> **Shared architecture (binding):** the cross-platform data inventory, the app links and texts,
+> the wording principles and the rule that keeps the notice true live in
+> [privacy-notice.md](../shared/privacy-notice.md) (2026-11-04). This concept keeps the page itself (build, copy, components,
+> styles, tests). Where they differ, the shared document wins.
+
 ## Story
 
 As a parent, I want to read Eulino's privacy notice on the web, so that I understand which data
@@ -134,29 +139,29 @@ page's data and makes the notice testable on its own.
 
 ### D5 — Verified data inventory, both platforms
 
-Every statement of the copy maps to this table. "Same" = identical on both platforms.
+The inventory (data flows, Android and Apple differences) moved to [privacy-notice.md → Data inventory](../shared/privacy-notice.md#data-inventory-the-notice-is-written-from-it). Each flow maps to these copy sections of `src/data/privacy.ts`:
 
-| Data flow | Android | iPhone, iPad, Mac | Copy section |
-|---|---|---|---|
-| Microphone only while a session runs, off on pause/stop | yes (EDU-1, EDU-13) | yes (EDU-36) | `gemini` |
-| Voice streamed live to Gemini Live API; Google returns audio answer + input/output transcription | yes | yes (same `BidiGenerateContent`, `x-goog-api-key`) | `gemini` |
-| No audio recorded or stored by the app | yes (stack Privacy) | yes (EDU-39 D1 "never audio") | `gemini`, `history` |
-| Session instructions + titles (AI title, else topic) of the last 5 ended sessions in the Live setup | yes (EDU-2, EDU-6) | yes (EDU-41, newest 5) | `gemini`, `history` |
-| Session resumption: Google keeps the session state for a limited time | yes (EDU-2) | yes (EDU-36 resumption handle) | `gemini` |
-| History on device: start, duration, topic, language, status, AI title, ≤ 10 points; recorded once the lesson left its first step (EDU-42: start state) | Room `edubuddy.db` | `Application Support/History/history.json` | `history` |
-| Transcript kept until summarised (seconds; max 5 failed attempts / 7 days), sent once to the Gemini API, then deleted | in the DB (can be in a backup made in that window, EDU-4) | `History/Pending/`, `isExcludedFromBackup` (never in a backup) | `history` |
-| Picture: only a short description (subject) sent to an image model of the Gemini API; image only in memory | yes (EDU-19) | yes (EDU-36, stack) | `pictures` |
-| API key BYOK, encrypted on device only, never backed up, sent only to Google; key check without content | Android Keystore (AES-GCM), `noBackupFilesDir` (EDU-7) | Keychain, `WhenUnlockedThisDeviceOnly`, not synchronizable (EDU-31 D6) | `api-key` |
-| Key after deleting the app | deleted with app data | **stays in the Keychain** (EDU-31 D4 "Reinstall on iOS"; also on Mac), replaced on next setup | `api-key`, `deleting` |
-| Crash reports Firebase Crashlytics, release builds, 90 days, no content | yes (EDU-14) | **planned** (user review round 1, D11; Apple story EDU-46 — today no Firebase / Google SDK in the Apple stack) | `in-short`, `crash-reports`, `deleting`, `legal-bases` |
-| OS-level diagnostics shared with the developer only if the user opted in | Google Play (usage & diagnostics) | Apple ("Share with App Developers", TestFlight) | `crash-reports` (one generic sentence for both stores) |
-| Backup | only `edubuddy.db` (history); cloud only end-to-end encrypted; device transfer | history.json **and UserDefaults** (onboarding flag, own lesson flow) in iCloud / Finder / Time Machine backups and Quick Start; key and pending transcripts never | `device-and-backups` |
-| Settings (onboarding flag, lesson flow) | SharedPreferences, not backed up | UserDefaults, backed up | `device-and-backups` |
-| Lesson-flow file export / share (only where the user chooses) | testing-only editor (EDU-25) | lesson flow editor (EDU-38) | `device-and-backups` |
-| In-app delete of history | none (EDU-28 U4) | none (EDU-39 D12) | `deleting` |
-| No ads, no analytics, no advertising ID, no account, no child profile; onboarding asks nothing about the child | yes | yes | `in-short`, `children` |
-| Google Search grounding (would add 30-day storage) | not used (no `googleSearch` in code) | not used | — (not mentioned) |
-| Website: GitHub Pages, IP/date/browser in server logs; no cookies, analytics, web fonts, external resources, forms | — | — | `website` |
+| Data flow | Copy section |
+|---|---|
+| Microphone only while a session runs, off on pause/stop | `gemini` |
+| Voice streamed live to Gemini Live API; Google returns audio answer + input/output transcription | `gemini` |
+| No audio recorded or stored by the app | `gemini`, `history` |
+| Session instructions + titles (AI title, else topic) of the last 5 ended sessions in the Live setup | `gemini`, `history` |
+| Session resumption: Google keeps the session state for a limited time | `gemini` |
+| History on device: start, duration, topic, language, status, AI title, ≤ 10 points; recorded once the lesson left its first step (EDU-42: start state) | `history` |
+| Transcript kept until summarised (seconds; max 5 failed attempts / 7 days), sent once to the Gemini API, then deleted | `history` |
+| Picture: only a short description (subject) sent to an image model of the Gemini API; image only in memory | `pictures` |
+| API key BYOK, encrypted on device only, never backed up, sent only to Google; key check without content | `api-key` |
+| Key after deleting the app | `api-key`, `deleting` |
+| Crash reports Firebase Crashlytics, release builds, 90 days, no content | `in-short`, `crash-reports`, `deleting`, `legal-bases` |
+| OS-level diagnostics shared with the developer only if the user opted in | `crash-reports` (one generic sentence for both stores) |
+| Backup | `device-and-backups` |
+| Settings (onboarding flag, lesson flow) | `device-and-backups` |
+| Lesson-flow file export / share (only where the user chooses) | `device-and-backups` |
+| In-app delete of history | `deleting` |
+| No ads, no analytics, no advertising ID, no account, no child profile; onboarding asks nothing about the child | `in-short`, `children` |
+| Google Search grounding (would add 30-day storage) | — (not mentioned) |
+| Website: GitHub Pages, IP/date/browser in server logs; no cookies, analytics, web fonts, external resources, forms | `website` |
 
 Deviation from the story text, decided by the facts: AC 4 says "backups (Android backup / iCloud:
 history only)". On Apple devices `UserDefaults` (whether the introduction is finished, an edited
@@ -203,19 +208,17 @@ describe facts and a reasonable mapping; they are not legal advice.
 
 ### D8 — Keeping the notice true (rule from Android EDU-28 D8)
 
-Recorded in `stack.md` → Privacy notice: any app story (Android or Apple) that adds or changes a
-data flow (new recipient, new stored data, new backup scope, new SDK) requires a follow-up story in
-this repository (label `Web`) to update `src/data/privacy.ts` and `PRIVACY_LAST_UPDATED`. D5 is
-the inventory the page was written from; such a follow-up updates D5 as well. A change of the
-website itself (new external resource, cookie, form, analytics) updates the `website` section in
-the same story.
+Rule moved to [privacy-notice.md → Keeping the notice true](../shared/privacy-notice.md#keeping-the-notice-true). In this repository: an
+app story that changes a data flow requires a follow-up story here (label `Web`) that updates
+`src/data/privacy.ts`, `PRIVACY_LAST_UPDATED` and the shared inventory; a change of the website
+itself (new external resource, cookie, form, analytics) updates the `website` section in the
+same story. Recorded in `stack.md` → Privacy notice.
 
-**Apple Crashlytics (D11):** the copy already describes Crashlytics for the Apple app. The Apple
-story that integrates it, [EDU-46](https://mklschreiber.atlassian.net/browse/EDU-46) "Integrate Firebase & Crashlytics" (label Apple, relates to EDU-45), must verify the `crash-reports`, `in-short`,
-`deleting` and `legal-bases` texts against what it actually ships (release builds only, data
-collected, retention, no session content) and, if anything differs, create the `Web` follow-up.
-Until EDU-46 ships, the notice describes a planned flow; this over-states, never
-under-states, what the Apple app sends.
+**Apple Crashlytics (D11):** the Apple story
+[EDU-46](https://mklschreiber.atlassian.net/browse/EDU-46) "Integrate Firebase & Crashlytics"
+must verify the `crash-reports`, `in-short`, `deleting` and `legal-bases` texts against what it
+ships and, if anything differs, create the `Web` follow-up. Until then the notice describes a
+planned flow (it over-states, never under-states, what the Apple app sends).
 
 ### D11 — Crash reports on all platforms (user review round 1)
 

@@ -8,6 +8,12 @@ application in `app/`.
 - [Technology Stack and Tooling](stack.md) — Vue 3, TypeScript, Vite, test,
   lint, brand assets and deployment baseline.
 
+## Shared Architecture
+
+Platform-independent rules of all EduBuddy platforms live in the submodule `docs/shared/`
+(start with [docs/shared/index.md](../shared/index.md)); the privacy notice page follows
+[docs/shared/privacy-notice.md](../shared/privacy-notice.md).
+
 ## Current Concepts
 
 <!-- New entries will be added here by the Architect and Tester Agents -->
